@@ -1,10 +1,11 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang = "en">
 
    <head>
       <meta charset = "UTF-8">
       <title>Job Search</title>
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
    </head>
 
    <body >
@@ -13,82 +14,93 @@
    </body>
 
 </html>
- -->
- <!DOCTYPE html>
+
+<!-- html hreadera nd title  -->
+ <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Rake Job Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>    
-    /* Set black background color, white text and some padding */
+ -->
+ <!--  <style>    
+
     footer {
       background-color: #D3D3D3;
-      color: white;
-      padding: 15px;
     }
+
+    .col-sm-3{
+      margin-top: 50px;
+    }
+
     label {
       clear: left;
       display: block;
       float: left;
       text-align: right;
     }
+
     .well{
       overflow: auto;
     }
 
     .center {
     text-align: center;
-}
+    }
 
-.pagination {
-    display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-}
-
-.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.row{
-   text-align: left;
+   .pagination {
+      display: inline-block;
    }
-  </style>
-}
-</head>
-<body>
 
-<nav class="navbar navbar-inverse">
+   .pagination a {
+       color: black;
+       float: left;
+       padding: 8px 16px;
+       text-decoration: none;
+       transition: background-color .3s;
+       border: 1px solid #ddd;
+       margin: 0 4px;
+   }
+
+   .pagination a.active {
+       background-color: #4CAF50;
+       color: white;
+       border: 1px solid #4CAF50;
+   }
+
+   .pagination a:hover:not(.active) {background-color: #ddd;}
+
+   .row{
+    text-align: left;
+   }
+
+   .navbar-inverse{
+      background-color: #2F4F4F;
+      height: 80px;
+      color: white;
+   }
+
+  </style>
+ -->
+<!-- </head>
+<body>
+ -->
+<!-- navigation bar -->
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <span class="navbar-brand" >Rake</span>
+      <img width="100" role="presentation" height="50" src="http://getrake.io/wp-content/uploads/2016/08/RakeLogoWebsite.png" alt="Rake" title="Rake" class="original_logo  show_logo ">
+      <p>Search Jobs</p>
+
     </div>
   </div>
 </nav>
+ -->
 
-
-  
+ <!-- text box and button -->
+<!-- 
 <div class="container text-center">   
   <div class="row">
         <div class="col-sm-12">
@@ -103,18 +115,21 @@
                   <label class="sr-only" for="exampleInputPassword3">Location</label>
                   <input type="location" class="form-control" id="exampleInputPassword3" placeholder="Location">
                 </div>
-                <button type="submit" class="btn btn-default col-sm-2">Search</button>
-              </form>    
+                <div class="form-group col-sm-2">
+                    <button type="submit" id="search_selected" class="btn btn-primary btn-findJobs">Search</button> 
+                </div>              
+               </form>    
             </div>
           </div>
-        </div>
-  </div>
+         </div>
+   </div> -->
 
-  <div class="row">
+<!-- main div for filter condition and result display -->
+ <!--  <div class="row">
     <div class="col-sm-3">
       <div class="well">
 
-        <p>Partner Sites</p>
+        <p><b>Partner Sites</b></p>
 
         <div class="checkbox">
           <label>
@@ -131,7 +146,7 @@
       </div>
       <div class="well">
 
-        <p>Sort By</p>
+        <p><b>Sort By</b></p>
         <select class="selectpicker">
           <option>Relevance</option>
           <option>Date</option>
@@ -141,19 +156,19 @@
       </div>
 
       <div class="well">
-        <p>Posted</p>
+        <p><b>Posted</b></p>
                 <select class="selectpicker">
                      <option> AnyTime </option>
                      <option> Within 1 Day </option>
                      <option> Within 3 Day </option>
                      <option> Within 7 Day </option>
-                     <option> >Within 15 Day </option>
+                     <option> Within 15 Day </option>
                 </select>
       </div>
 
 
       <div class="well">
-        <p>Distance</p>
+        <p><b>Distance</b></p>
                 <select class="selectpicker">
                      <option> Anywhere </option>
                      <option> Within 5 Miles </option>
@@ -164,12 +179,11 @@
                      <option> Within 100 Miles </option>
                 </select>
       </div>
+
     </div>
 
     <div class="col-sm-9">
-    
-      
-      
+   
       <div class="row">
 
         <div class="col-sm-12">
@@ -179,50 +193,88 @@
             <div class="row">
 
               <div class="col-sm-9">
-               <p>Job Title: Network Engineer</p> 
-               <p>Company Name: Facebook</p> 
-               <p>Posted Date: 10 Days Ago</p> 
-               <p>Salary: $50k p.a</p> 
-               <p>Job Link: https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES</p> 
-               <p>Employee Type: Full Time</p> 
-              
+
+               <h2> Network Engineer </h2> 
+               <p> Facebook </p> 
+               <p>
+                   <span class="css-1r756hp">
+                        <img width="12" height="12" src="https://d30y4n1t170mxu.cloudfront.net/assets/img/job-listing/employer-location-ico.svg">
+                   </span>
+                   <span>Sacramento, CA Posted 2 hours ago</span>
+               </p>
+               <p><b> Salary: </b> $50k p.a </p> 
+               <p><b> Employee Type: </b> Full Time </p> 
+               <p><b> Posted Date: </b> 10 Days Ago </p> 
+               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
 
               </div>
 
               <div class="col-sm-3">
-                 <img src="http://getrake.io/wp-content/uploads/2016/08/RakeLogoWebsite.png" class="img-circle" height="100" width="100" alt="Avatar">   
+                 <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
+              </div>
+              <div class="col-sm-9">
+
+               <h2> Network Engineer </h2> 
+               <p> Facebook </p> 
+               <p>
+                   <span class="css-1r756hp">
+                        <img width="12" height="12" src="https://d30y4n1t170mxu.cloudfront.net/assets/img/job-listing/employer-location-ico.svg">
+                   </span>
+                   <span>Sacramento, CA Posted 2 hours ago</span>
+               </p>
+               <p><b> Salary: </b> $50k p.a </p> 
+               <p><b> Employee Type: </b> Full Time </p> 
+               <p><b> Posted Date: </b> 10 Days Ago </p> 
+               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
+
               </div>
 
+              <div class="col-sm-3">
+                 <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
+              </div>
+              <div class="col-sm-9">
+
+               <h2> Network Engineer </h2> 
+               <p> Facebook </p> 
+               <p>
+                   <span class="css-1r756hp">
+                        <img width="12" height="12" src="https://d30y4n1t170mxu.cloudfront.net/assets/img/job-listing/employer-location-ico.svg">
+                   </span>
+                   <span>Sacramento, CA Posted 2 hours ago</span>
+               </p>
+               <p><b> Salary: </b> $50k p.a </p> 
+               <p><b> Employee Type: </b> Full Time </p> 
+               <p><b> Posted Date: </b> 10 Days Ago </p> 
+               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
+
+              </div>
+
+              <div class="col-sm-3">
+                 <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
+              </div>
             </div>
-
+            </div>
           </div>
-
-        </div>
-        
+        </div> 
       </div>
-
-      
     </div>
-    
-  </div>
-</div>
+  </div> -->
 
-<footer iclass="container-fluid text-center">
-  
-<div class="center">
-  <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#" class="active">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-  </div>
-</div>
+<!-- footer -->
+<!-- <footer iclass="container-fluid text-center">
+      <div class="center">
+         <div class="pagination">
+             <a href="#">&laquo;</a>
+             <a href="#">1</a>
+             <a href="#" class="active">2</a>
+             <a href="#">3</a>
+             <a href="#">4</a>
+             <a href="#">5</a>
+             <a href="#">6</a>
+             <a href="#">&raquo;</a>
+         </div>
+      </div>
+</footer> -->
 
-</footer>
-
-</body>
-</html>
+<!-- </body>
+</html> -->
