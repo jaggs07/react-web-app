@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 var imagePath = '../../img.logo.png';
-export class NavBar extends Component {
+var NavBar = React.createClass ({
 
 	render() {
 
@@ -20,6 +20,6 @@ export class NavBar extends Component {
 				</nav> 
 		);
 	}
-}
+});
 
-export default NavBar;
+module.exports = NavBar;

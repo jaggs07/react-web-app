@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import FetchData from './FetchData';
+// import FetchData from './FetchData';
 
-class SearchResults extends Component {
+var SearchResults = React.createClass ({
 	
 	render() {
 
 		var jobArray = [];
 
-		var isLoggedIn = this.props.jobs;
+		var isLoggedIn = this.props.posts;
+		// console.log(isLoggedIn,  )
 
-		if(typeof isLoggedIn !== "undefined" ){
+		if(typeof isLoggedIn !== "undefined"){
 
 				isLoggedIn.map(function(job){
 
@@ -50,9 +51,8 @@ class SearchResults extends Component {
 						</div>
  					 );			               
 		})
-		}else{
-			alert("inside else");
 		}
+       if(jobArray.length >0){
 		return (
 
 			<div className="col-sm-9">
@@ -69,7 +69,25 @@ class SearchResults extends Component {
 			    </div> 
 		    </div>
 		);
-	}
-}
+	}else{
+			return (
 
-export default SearchResults;
+			<div className="col-sm-9">
+			    <div className="row">
+				    <div className="col-sm-12">
+
+					    <div className="bs-example">
+						    <div className="alert alert-warning fade in suggest-info">
+					        <strong>Suggestion!</strong> Enter the jobs that you are looking for.
+					    </div>
+					</div>
+
+			        </div>
+			    </div> 
+		    </div>
+		);
+	}
+	}
+});
+
+module.exports = SearchResults;

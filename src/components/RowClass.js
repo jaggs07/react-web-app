@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import SideBar from './SideBar'
-import FetchData from './FetchData'
+import SearchResults from './SearchResults'
 
-class RowClass extends Component {
+
+var RowClass = React.createClass ({
 	render() {
+		console.log(this.props.posts,"row class texdgdfgdt value");
 		return (
 			<div className = "row">
 				<SideBar />
-				<FetchData />
+				 <SearchResults posts= {this.props.posts} />
 			</div>
 		);
 	}
-}
-export default RowClass;
+});
+
+module.exports = RowClass;

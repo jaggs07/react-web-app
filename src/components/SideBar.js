@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SideBar extends Component {
+var SideBar = React.createClass ({
 	render() {
 		return (
 			    <div className="col-sm-3">
@@ -59,7 +59,7 @@ class SideBar extends Component {
 			</div>	
     );
 	}
-}
+});
 
 
-export default SideBar;
+module.exports = SideBar;

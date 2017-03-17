@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Footer extends Component {
+var Footer = React.createClass ({
 	render() {
 		return (
 			<footer>
 			      <div className="center">
 				         <div className="pagination">
 				             <a href="#">&laquo;</a>
-				             <a href="#" className="active">1</a>
+				             <a href="#" class="active">1</a>
 				             <a href="#">2</a>
 				             <a href="#">3</a>
 				             <a href="#">4</a>
@@ -19,6 +19,6 @@ class Footer extends Component {
 			</footer>
 		);
 	}
-}
+});
 
-export default Footer;
+module.exports = Footer;

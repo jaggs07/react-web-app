@@ -3,7 +3,7 @@ import NavBar from './NavBar'
 import BodyContainer from './BodyContainer'
 import Footer from './Footer'
 
-class App extends React.Component {
+var App = React.createClass ({
    render() {
       return (
       	<div>
@@ -13,6 +13,6 @@ class App extends React.Component {
 	    </div>
       );
    }
-}
+});
 
-export default App;
+module.exports = App;

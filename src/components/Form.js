@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 
-class Form extends Component {
-handleSubmit(){
+var Form = React.createClass({
 
+    handleSubmit: function(){
         this.props.onClick();
-    }
+    },
 
-    handleChangeTitle(e){
+    handleChangeTitle: function(e){
 
         var title = e.target.value;
         this.props.onChangeTitle(title);
-    }
+    },
 
-    handleChangeLocation(e){
+    handleChangeLocation: function(e){
 
         var location = e.target.value;
         this.props.onChangeLocation(location);
-    }
+    },
 
 	render() {
 		return (
-			<div className = "row">
+			<div className = "row" >
 	          <div className="panel panel-default text-left">
 	            <div className="panel-body form-class">
 
@@ -37,7 +37,7 @@ handleSubmit(){
 	                </div>
 
 	                <div className="form-group col-md-2 button-field">	                 
-					    <button onClick={this.handleSubmit} type="submit" id="search_selected" className="btn btn-primary">
+					    <button onClick={this.handleSubmit} type="button"  id="search_selected" className="btn btn-primary">
 					      <span className="glyphicon glyphicon-search"></span> Search
 					    </button>
 	                </div>  
@@ -48,6 +48,6 @@ handleSubmit(){
          </div>
 		);
 	}
-}
+});
 
-export default Form;
+module.exports = Form;

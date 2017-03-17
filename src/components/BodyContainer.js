@@ -1,61 +1,94 @@
 import React, { Component } from 'react';
 import Form from './Form'
 import RowClass from './RowClass'
+import axios from 'axios';
+var FetchData = React.createClass({
 
+    getInitialState: function(){
 
-class BodyContainer extends Component {
+        return {
+            title : '',
+            location : '',
+            sort : 'Relevance',
+            posted: 'Any Time',
+            distance: 'Any Where',
+            posts:undefined
+        };
+    },
 
-	constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      title: 'fdgdfgdfg',
-      location: 'bbgbngbgb'
-    };
-  };
-	setTitle(newTitle){
+    setTitle: function(newTitle){
         this.setState({
             title: newTitle
         });
-    }
+    },
 
-    setLocation(newLocation){
+    setLocation: function(newLocation){
         this.setState({
             location: newLocation
         });
-    }
+    },
 
 
-    setSort(newSort){
+    setSort: function(newSort){
         this.setState({
             sort: newSort
         });
-    }
+    },
 
-    setPosted(newPosted){
+    setPosted: function(newPosted){
         this.setState({
             posted: newPosted
         });
-    }
+    },
 
-    setDistance(newDistance){
+    setDistance: function(newDistance){
         this.setState({
             distance: newDistance
         });
-    }
+    },
+
+    handleClick: function(){
+
+    	axios.get(`http://54.234.23.64:8080/search/jobs`,{
+		      params: {
+		        title: this.state.title,
+		        location: this.state.location
+		      }
+		    })
+      .then(res => {
+        this.setState({ posts: res.data });
+        console.log(this.state.title,"data.....");
+        if(res instanceof Error) {
+             console.log(res.message);
+         } else {
+
+             this.setState({
+             	posts:res.data
+             })
+         }
+      });
+    },
 	render() {
-		return (
+		
+			return (
 			<div className="container text-center" > 
                 <Form 
                     onClick={this.handleClick} 
                     title={this.state.title} 
                     onChangeTitle={this.setTitle} 
                     location={this.state.location}
-                    onChangeLocation={this.setLocation} />
-				<RowClass />
-			</div>  
-		);
-	}
-}
+                    onChangeLocation={this.setLocation}
+                    />
+				<RowClass 
+				     posts={this.state.posts}
+					 />
+			</div>
 
-export default BodyContainer;
+		);
+		
+	
+	}
+});
+
+
+module.exports = FetchData;
