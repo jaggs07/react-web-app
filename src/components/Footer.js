@@ -5,9 +5,9 @@ class Footer extends Component {
 		return (
 			<footer>
 			      <div className="center">
-				         <div class="pagination">
+				         <div className="pagination">
 				             <a href="#">&laquo;</a>
-				             <a href="#" class="active">1</a>
+				             <a href="#" className="active">1</a>
 				             <a href="#">2</a>
 				             <a href="#">3</a>
 				             <a href="#">4</a>

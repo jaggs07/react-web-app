@@ -14,9 +14,9 @@
    </body>
 
 </html>
-
+ 
 <!-- html hreadera nd title  -->
- <!-- <!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Rake Job Search</title>
@@ -25,8 +25,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- -->
- <!--  <style>    
+
+ <!-- css styles -->
+<!--   <style>    
 
     footer {
       background-color: #D3D3D3;
@@ -82,12 +83,21 @@
       height: 80px;
       color: white;
    }
+   .gap-class {
+margin-bottom:5px;
+border-bottom-color: black;
+}
+.job-info{
+    border-style: solid;
+    border-width: 100%;
+}
 
-  </style>
- -->
-<!-- </head>
-<body>
- -->
+
+  </style> --> 
+<!-- 
+</head>
+<body> -->
+
 <!-- navigation bar -->
 <!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -96,36 +106,34 @@
 
     </div>
   </div>
-</nav>
- -->
+</nav> -->
+
 
  <!-- text box and button -->
 <!-- 
-<div class="container text-center">   
+<div class="container">   
   <div class="row">
-        <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
-              <form class="form-inline">
-                <div class="form-group col-sm-5">
-                  <label class="sr-only" for="exampleInputEmail3">Job Title</label>
+              <form>
+                <div class="form-group col-md-5">
+                  <label class="sr-only " for="exampleInputEmail3">Job Title</label>
                   <input type="jobTitle" class="form-control" id="exampleInputEmail3" placeholder="JobTitle">
                 </div>
-                <div class="form-group col-sm-5">
+                <div class="form-group col-md-5 ">
                   <label class="sr-only" for="exampleInputPassword3">Location</label>
                   <input type="location" class="form-control" id="exampleInputPassword3" placeholder="Location">
                 </div>
-                <div class="form-group col-sm-2">
+                <div class="form-group col-md-2 ">
                     <button type="submit" id="search_selected" class="btn btn-primary btn-findJobs">Search</button> 
                 </div>              
                </form>    
             </div>
-          </div>
          </div>
-   </div> -->
-
+   </div>
+ -->
 <!-- main div for filter condition and result display -->
- <!--  <div class="row">
+<!--   <div class="row">
     <div class="col-sm-3">
       <div class="well">
 
@@ -194,6 +202,8 @@
 
               <div class="col-sm-9">
 
+              <ul class="job-info">
+
                <h2> Network Engineer </h2> 
                <p> Facebook </p> 
                <p>
@@ -205,15 +215,19 @@
                <p><b> Salary: </b> $50k p.a </p> 
                <p><b> Employee Type: </b> Full Time </p> 
                <p><b> Posted Date: </b> 10 Days Ago </p> 
-               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
+               <p class = "col-sm-12 gap-class" ><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
 
               </div>
 
               <div class="col-sm-3">
                  <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
               </div>
+
+              </ul>
               <div class="col-sm-9">
 
+              <ul class="job-info">
+
                <h2> Network Engineer </h2> 
                <p> Facebook </p> 
                <p>
@@ -225,14 +239,15 @@
                <p><b> Salary: </b> $50k p.a </p> 
                <p><b> Employee Type: </b> Full Time </p> 
                <p><b> Posted Date: </b> 10 Days Ago </p> 
-               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
+               <p class = "col-sm-12 gap-class" ><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
 
               </div>
-
               <div class="col-sm-3">
                  <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
               </div>
+              </ul>
               <div class="col-sm-9">
+              <ul class="job-info">
 
                <h2> Network Engineer </h2> 
                <p> Facebook </p> 
@@ -245,13 +260,14 @@
                <p><b> Salary: </b> $50k p.a </p> 
                <p><b> Employee Type: </b> Full Time </p> 
                <p><b> Posted Date: </b> 10 Days Ago </p> 
-               <p><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
+               <p class = "col-sm-6 gap-class"><b> Job link: </b><a href='"+val.jobLink+"' target='_blank' >"https://www.glassdoor.com/Job/jobs.htm?sc.keyword=construction&locT=S&locId=2280&locKeyword=California&srs=RECENT_SEARCHES" </a></p>
 
               </div>
 
               <div class="col-sm-3">
                  <img src="https://media.glassdoor.com/sql/298515/cagwin-and-dorward-squarelogo.png" class="img-circle" height="100" width="100" alt="Avatar">   
               </div>
+              </ul>
             </div>
             </div>
           </div>
@@ -277,4 +293,4 @@
 </footer> -->
 
 <!-- </body>
-</html> -->
+</html>

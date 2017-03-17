@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import SearchResults from './SearchResults'
 import SideBar from './SideBar'
+import FetchData from './FetchData'
 
 class RowClass extends Component {
 	render() {
 		return (
-			<div class = "row">
+			<div className = "row">
 				<SideBar />
-				< SearchResults />
+				<FetchData />
 			</div>
 		);
 	}
 }
-
 export default RowClass;

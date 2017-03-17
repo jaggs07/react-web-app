@@ -1,34 +1,51 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
+handleSubmit(){
+
+        this.props.onClick();
+    }
+
+    handleChangeTitle(e){
+
+        var title = e.target.value;
+        this.props.onChangeTitle(title);
+    }
+
+    handleChangeLocation(e){
+
+        var location = e.target.value;
+        this.props.onChangeLocation(location);
+    }
+
 	render() {
 		return (
-			<div className="row">
-		        <div className="col-sm-12">
-			        <div className="panel panel-default text-left">
-			            <div className="panel-body">
+			<div className = "row">
+	          <div className="panel panel-default text-left">
+	            <div className="panel-body form-class">
 
-				             <form className="form-inline">
+	              <form>
 
-				                <div className="form-group col-sm-5">
-					                  <label className="sr-only" for="exampleInputEmail3">Job Title </label>
-					                  <input type="jobTitle" className="form-control" id="exampleInputEmail3" placeholder="JobTitle" />
-				                </div>
+	                <div className="form-group col-md-5 title-field">
+	                  <label className="sr-only " htmlFor="exampleInputEmail3">Job Title</label>
+	                  <input value={this.props.title} onChange={this.handleChangeTitle} type="jobTitle" className="form-control" id="exampleInputEmail3" placeholder="JobTitle" />
+	                </div>
 
-				                <div className="form-group col-sm-5">
-					                  <label className="sr-only" for="exampleInputPassword3">Location </label>
-					                  <input type="location" className="form-control" id="exampleInputPassword3" placeholder="Location" />
-					            </div>
+	                <div className="form-group col-md-5 location-field">
+	                  <label className="sr-only" htmlFor="exampleInputPassword3">Location</label>
+	                  <input value={this.props.location} onChange={this.handleChangeLocation} type="location" className="form-control" id="exampleInputPassword3" placeholder="Location" />
+	                </div>
 
-				                <div className="form-group col-sm-2">
-				                    <button type="submit" id="search_selected" className="btn btn-primary btn-findJobs">Search</button> 
-				                </div> 
-				                             
-				              </form>    
-			            </div>
-			        </div>
-		        </div>
-  			</div>
+	                <div className="form-group col-md-2 button-field">	                 
+					    <button onClick={this.handleSubmit} type="submit" id="search_selected" className="btn btn-primary">
+					      <span className="glyphicon glyphicon-search"></span> Search
+					    </button>
+	                </div>  
+
+	               </form>    
+	      	      </div>
+	         </div>
+         </div>
 		);
 	}
 }
