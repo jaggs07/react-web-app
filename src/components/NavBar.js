@@ -1,6 +1,5 @@
 import React from 'react';
 
-var imagePath = '../../img.logo.png';
 var NavBar = React.createClass ({
 
 	render() {

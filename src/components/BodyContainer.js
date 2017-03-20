@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Form from './Form'
-import RowClass from './RowClass'
 import axios from 'axios';
+import $ from 'jquery';
+import SideBar from './SideBar';
+import SearchResults from './SearchResults';
+
 var FetchData = React.createClass({
 
     getInitialState: function(){
@@ -9,10 +12,12 @@ var FetchData = React.createClass({
         return {
             title : '',
             location : '',
-            sort : 'Relevance',
-            posted: 'Any Time',
-            distance: 'Any Where',
-            posts:undefined
+            sort : 'relevance',
+            posted: '',
+            distance: '',
+            posts:undefined,
+            checked: [true, true, true]
+
         };
     },
 
@@ -47,13 +52,28 @@ var FetchData = React.createClass({
         });
     },
 
-    handleClick: function(){
+    handleSiteChange: function(changedSite){
+        
+        this.setState({
+            checked: changedSite
+        });
+    },
 
-    	axios.get(`http://54.234.23.64:8080/search/jobs`,{
+    handleClick: function(){
+    var selectedSites = ["INDEED","ZIPRECRUITER","JOBS2CAREERS"];
+
+    	axios.get(`http://localhost:8080/search/jobs`,{
 		      params: {
 		        title: this.state.title,
-		        location: this.state.location
-		      }
+		        location: this.state.location,
+                sort: this.state.sort,
+                radius: this.state.distance,
+                relevance: this.state.relevance,
+                site: "INDEED",
+                site: "ZIPRECRUITER",
+                site: "JOBS2CAREERS",
+                posted: this.state.posted
+		      },
 		    })
       .then(res => {
         this.setState({ posts: res.data });
@@ -61,6 +81,7 @@ var FetchData = React.createClass({
         if(res instanceof Error) {
              console.log(res.message);
          } else {
+             console.log(res.headers);
 
              this.setState({
              	posts:res.data
@@ -71,7 +92,7 @@ var FetchData = React.createClass({
 	render() {
 		
 			return (
-			<div className="container text-center" > 
+			<div className="container" > 
                 <Form 
                     onClick={this.handleClick} 
                     title={this.state.title} 
@@ -79,9 +100,19 @@ var FetchData = React.createClass({
                     location={this.state.location}
                     onChangeLocation={this.setLocation}
                     />
-				<RowClass 
-				     posts={this.state.posts}
-					 />
+				<div className = "row">
+                    <SideBar 
+                    checked={this.state.checked} // for checked sites
+                    onChangeSite={this.handleSiteChange} //for hande site change
+                    sort={this.state.sort} 
+                    onSortChange={this.setSort}
+                    posted={this.state.posted} 
+                    onPostedChange={this.setPosted}
+                    distance={this.state.distance}
+                    onDistanceChange={this.setDistance}
+                    />
+                    <SearchResults posts= {this.state.posts} />
+            </div>
 			</div>
 
 		);

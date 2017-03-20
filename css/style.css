@@ -87,3 +87,7 @@ margin-bottom: 3em;
 margin-left: 80px;
   font-size: 18px;
  }
+ .job-section{
+    border-bottom: 10px solid white;  
+      padding-bottom: 4px;
+ }

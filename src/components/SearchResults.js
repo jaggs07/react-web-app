@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import FetchData from './FetchData';
 
 var SearchResults = React.createClass ({
 	
@@ -8,13 +7,13 @@ var SearchResults = React.createClass ({
 		var jobArray = [];
 
 		var isLoggedIn = this.props.posts;
-		// console.log(isLoggedIn,  )
 
 		if(typeof isLoggedIn !== "undefined"){
 
-				isLoggedIn.map(function(job){
+				isLoggedIn.map(function(job,i){
 
 					jobArray.push(
+				      <div key={i} className="row job-section">
 
 						<div className="col-sm-9">
 
@@ -49,6 +48,7 @@ var SearchResults = React.createClass ({
 					   		</div> 
 
 						</div>
+						</div>
  					 );			               
 		})
 		}
@@ -59,11 +59,7 @@ var SearchResults = React.createClass ({
 			    <div className="row">
 				    <div className="col-sm-12">
 				        <div className="well">
-				            <div className="row">
-					              	<ul>
 					              		{jobArray}
-					              	</ul>
-				            </div>
 			            </div>
 			        </div>
 			    </div> 
