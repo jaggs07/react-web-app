@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
+
+
+
 var SearchResults = React.createClass ({
-	
+
 	render() {
 
 		var jobArray = [];
@@ -15,7 +18,7 @@ var SearchResults = React.createClass ({
 					jobArray.push(
 				      <div key={i} className="row job-section">
 
-						<div className="col-sm-9">
+						<div className="col-sm-9 job-details">
 
 							<div className="jobTitle">
 								<a href= {job.jobLink} target='_blank'>
@@ -46,10 +49,29 @@ var SearchResults = React.createClass ({
 					   				 <b>Partner Site: </b>{job.partnerSite} 
 					   			</span>
 					   		</div> 
-
+ 							
 						</div>
-						</div>
- 					 );			               
+						if(job.partnerSite == 'indeed'){
+							<div className="job-image">
+								<span className="site-text">Apply on</span>
+           					      <img src="../../img/ziprecruiter.svg" className="site-image"  alt="Avatar" />   
+           				   </div> 
+						}else if(job.partnerSite == 'zipRecruiter'){
+							 <div className="job-image">
+								<span className="site-text">Apply on</span>
+           					      <img src="../../img/indeed.jpg" className="site-image"  alt="Avatar" />   
+           				   </div>
+						}else{
+							<div className="job-image">
+								<span className="site-text">Apply on</span>
+           					      <img src="../../img/jobs2careers.png" className="site-image"  alt="Avatar" />   
+           				   </div>
+						}
+						
+           				   
+           				    
+					</div>
+ 				);			               
 		})
 		}
        if(jobArray.length >0){
@@ -72,9 +94,9 @@ var SearchResults = React.createClass ({
 			    <div className="row">
 				    <div className="col-sm-12">
 
-					    <div className="bs-example">
+					    <div className="info-message">
 						    <div className="alert alert-warning fade in suggest-info">
-					        <strong>Suggestion!</strong> Enter the jobs that you are looking for.
+					        <strong>Look for the jobs that fits for you.</strong>
 					    </div>
 					</div>
 

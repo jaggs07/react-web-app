@@ -59,8 +59,31 @@ var FetchData = React.createClass({
         });
     },
 
+    // setSiteParam: function(){
+    //     var sites ='';
+    //     for (var i = this.state.checked.length - 1; i >= 0; i--) {
+    //         if(this.state.checked[i] == true && i == 0){
+    //             sites = sites + '&site=INDEED';
+    //             console.log(sites,"loop 1");
+    //         }
+    //         if(this.state.checked[i] == true && i == 1){
+    //             sites = sites + '&site=ZIPRECRUITER';
+    //             console.log(sites,"loop 2");
+
+    //         }
+    //         if(this.state.checked[i] == true && i == 2){
+    //             sites = sites + '&site=JOBS2CAREERS';
+    //             console.log(sites,"loop 3");
+    //         }
+
+    //         console.log(sites,"combined");
+    //         return sites;
+
+    //     }
+    // },
+
     handleClick: function(){
-    var selectedSites = ["INDEED","ZIPRECRUITER","JOBS2CAREERS"];
+        // var siteParam = this.setSiteParam();
 
     	axios.get(`http://localhost:8080/search/jobs`,{
 		      params: {
@@ -69,10 +92,8 @@ var FetchData = React.createClass({
                 sort: this.state.sort,
                 radius: this.state.distance,
                 relevance: this.state.relevance,
-                site: "INDEED",
-                site: "ZIPRECRUITER",
-                site: "JOBS2CAREERS",
-                posted: this.state.posted
+                posted: this.state.posted,
+                site: "INDEED,ZIPRECRUITER,JOBS2CAREERS"
 		      },
 		    })
       .then(res => {

@@ -1,11 +1,3 @@
-  footer {
-    background-color: #D3D3D3;
-  }
-
-  .col-sm-3{
-    margin-top: 50px;
-  }
-
   label {
     clear: left;
     display: block;
@@ -47,21 +39,14 @@
   text-align: left;
  }
 
- .navbar-inverse{
-    background-color: #2F4F4F;
-    height: 80px;
-    color: white;
- }
+ 
  .border-line{
 margin-bottom: 3em;
  }
- .form-class{
-  background-color: #438D80;
- }
+
  #logo-header{
      margin:10px 0px;
      margin-left: 20px;
-
 }
 .site-info{
   margin-top: 35px;
@@ -70,24 +55,48 @@ margin-bottom: 3em;
   font-size: 19px;
 
  }
+
  .location-field{
   margin-top: 20px;
  }
+
  .title-field{
   margin-top: 20px;
  }
+
  .button-field{
   margin-top: 20px;
  }
+
  .jobHeader{
-  font-size: 18px;
-  color: green;
+  font-size: 20px;
+  color: black;
  }
+
  .suggest-info{
-margin-left: 80px;
   font-size: 18px;
+  text-align: center;
+  color: black;
  }
+
  .job-section{
-    border-bottom: 10px solid white;  
-      padding-bottom: 4px;
+    border-bottom: 20px solid white;  
+    padding-bottom: 4px;
  }
+
+ select{
+  width:100%;
+  padding:5px;
+}
+
+.job-image{
+  display:table-cell;
+  vertical-align: middle;
+  float: none;
+
+}
+
+.site-image{
+  height: 20px
+}
+
