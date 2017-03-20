@@ -51,22 +51,7 @@ var SearchResults = React.createClass ({
 					   		</div> 
  							
 						</div>
-						if(job.partnerSite == 'indeed'){
-							<div className="job-image">
-								<span className="site-text">Apply on</span>
-           					      <img src="../../img/ziprecruiter.svg" className="site-image"  alt="Avatar" />   
-           				   </div> 
-						}else if(job.partnerSite == 'zipRecruiter'){
-							 <div className="job-image">
-								<span className="site-text">Apply on</span>
-           					      <img src="../../img/indeed.jpg" className="site-image"  alt="Avatar" />   
-           				   </div>
-						}else{
-							<div className="job-image">
-								<span className="site-text">Apply on</span>
-           					      <img src="../../img/jobs2careers.png" className="site-image"  alt="Avatar" />   
-           				   </div>
-						}
+						
 						
            				   
            				    
