@@ -16,8 +16,8 @@ var FetchData = React.createClass({
             posted: '',
             distance: '',
             posts:undefined,
-            checked: [true, true, true]
-
+            isChecked: [true, true, true],
+            sites:'INDEED,ZIPRECRUITER,JOBS2CAREERS'
         };
     },
 
@@ -52,25 +52,54 @@ var FetchData = React.createClass({
         });
     },
 
-    handleSiteChange: function(changedSite){
-        
-        this.setState({
-            checked: changedSite
-        });
-    },
+    handleCheckboxChange: function(newCheckboxStatus){
 
+        var siteParamArray=[];
+
+        this.setState({
+            isChecked: newCheckboxStatus
+        });
+
+        if(newCheckboxStatus[0]){
+            siteParamArray.push("INDEED");
+        }
+        if(newCheckboxStatus[1]){
+            siteParamArray.push("ZIPRECRUITER");
+        }
+        if(newCheckboxStatus[2]){
+            siteParamArray.push("JOBS2CAREERS");
+        }
+
+        var sitesParam = "";
+
+        siteParamArray.map(function(name, index){
+            if(index == ( siteParamArray.length - 1) ){
+
+              sitesParam = sitesParam + name;
+            }else{
+
+                sitesParam = sitesParam + name + ",";
+            }
+        });
+
+        this.setState({
+            sites: sitesParam
+        });
+
+    },
 
     handleClick: function(){
 
     	axios.get(`http://54.234.23.64:8080/search/jobs`,{
 		      params: {
-    		        title: this.state.title,
-    		        location: this.state.location,
-                    sort: this.state.sort,
-                    radius: this.state.distance,
-                    relevance: this.state.relevance,
-                    posted: this.state.posted,
-                    site: "INDEED,ZIPRECRUITER,JOBS2CAREERS"
+
+		        title: this.state.title,
+		        location: this.state.location,
+                sort: this.state.sort,
+                radius: this.state.distance,
+                relevance: this.state.relevance,
+                posted: this.state.posted,
+                site: this.state.sites
 		      },
 		    })
       .then(res => {
@@ -90,8 +119,7 @@ var FetchData = React.createClass({
 	render() {
 		
 			return (
-			     <div className="container" > 
-
+			 <div className="container" > 
                         <Form 
                             onClick={this.handleClick} 
                             title={this.state.title} 
@@ -99,24 +127,21 @@ var FetchData = React.createClass({
                             location={this.state.location}
                             onChangeLocation={this.setLocation}
                             />
-
         				<div className = "row">
-                            <SideBar 
-                            checked={this.state.checked} // for checked sites
-                            onChangeSite={this.handleSiteChange} //for hande site change
-                            sort={this.state.sort} 
-                            onSortChange={this.setSort}
-                            posted={this.state.posted} 
-                            onPostedChange={this.setPosted}
-                            distance={this.state.distance}
-                            onDistanceChange={this.setDistance}
-                            />
-
-                            <SearchResults posts= {this.state.posts} 
-                            />
-
+                                <SideBar 
+                                isChecked = {this.state.isChecked}
+                                onChangeCheckbox ={this.handleCheckboxChange}
+                                sort={this.state.sort} 
+                                onSortChange={this.setSort}
+                                posted={this.state.posted} 
+                                onPostedChange={this.setPosted}
+                                distance={this.state.distance}
+                                onDistanceChange={this.setDistance}
+                                />
+                                <SearchResults posts= {this.state.posts} />
                         </div>
-			     </div>
+			</div>
+
 		);
 	}
 });
