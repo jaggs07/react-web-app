@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 
 
+var Image = React.createClass({
 
+    render: function(){
+        var img;
+        if (this.props.siteType == 'indeed'){
+            img = "../../img/indeed.jpg";
+        }
+        if (this.props.siteType == 'zipRecruiter'){
+			img = "../../img/ziprecruiter.svg";
+        }
+        if (this.props.siteType == 'jobs2Carrers'){
+            img = "../../img/jobs2careers.png";
+        }
+        return(
+            <img src={img} className="site-image" height="100" width="100" alt="Avatar" />  
+        );
+    }
+});
 
 var SearchResults = React.createClass ({
 
@@ -51,9 +68,11 @@ var SearchResults = React.createClass ({
 					   		</div> 
  							
 						</div>
-						
-						
-           				   
+
+						<div className="job-image">
+								<span className="site-text">Apply on</span>
+           					     <Image siteType={job.partnerSite} /> 
+           				</div> 						          				   
            				    
 					</div>
  				);			               

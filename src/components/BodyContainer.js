@@ -85,7 +85,7 @@ var FetchData = React.createClass({
     handleClick: function(){
         // var siteParam = this.setSiteParam();
 
-    	axios.get(`http://localhost:8080/search/jobs`,{
+    	axios.get(`http://54.234.23.64:8080/search/jobs`,{
 		      params: {
 		        title: this.state.title,
 		        location: this.state.location,
