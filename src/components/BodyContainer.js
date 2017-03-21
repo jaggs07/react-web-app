@@ -16,7 +16,8 @@ var FetchData = React.createClass({
             posted: '',
             distance: '',
             posts:undefined,
-            checked: [true, true, true]
+            isChecked: [true, true, true],
+            sites:''
 
         };
     },
@@ -52,35 +53,40 @@ var FetchData = React.createClass({
         });
     },
 
-    handleSiteChange: function(changedSite){
-        
+    handleCheckboxChange: function(newCheckboxStatus){
+
+        var siteParamArray=[];
+
         this.setState({
-            checked: changedSite
+            isChecked: newCheckboxStatus
         });
+
+        if(newCheckboxStatus[0]){
+            siteParamArray.push("INDEED");
+        }
+        if(newCheckboxStatus[1]){
+            siteParamArray.push("ZIPRECRUITER");
+        }
+        if(newCheckboxStatus[2]){
+            siteParamArray.push("JOBS2CAREERS");
+        }
+
+        var sitesParam="";
+        siteParamArray.map(function(name, index){
+            if(index == ( siteParamArray.length - 1) ){
+
+              sitesParam = sitesParam + name;
+            }else{
+
+                sitesParam = sitesParam + name + ",";
+            }
+        });
+
+        this.setState({
+            sites: sitesParam
+        });
+
     },
-
-    // setSiteParam: function(){
-    //     var sites ='';
-    //     for (var i = this.state.checked.length - 1; i >= 0; i--) {
-    //         if(this.state.checked[i] == true && i == 0){
-    //             sites = sites + '&site=INDEED';
-    //             console.log(sites,"loop 1");
-    //         }
-    //         if(this.state.checked[i] == true && i == 1){
-    //             sites = sites + '&site=ZIPRECRUITER';
-    //             console.log(sites,"loop 2");
-
-    //         }
-    //         if(this.state.checked[i] == true && i == 2){
-    //             sites = sites + '&site=JOBS2CAREERS';
-    //             console.log(sites,"loop 3");
-    //         }
-
-    //         console.log(sites,"combined");
-    //         return sites;
-
-    //     }
-    // },
 
     handleClick: function(){
         // var siteParam = this.setSiteParam();
@@ -93,7 +99,7 @@ var FetchData = React.createClass({
                 radius: this.state.distance,
                 relevance: this.state.relevance,
                 posted: this.state.posted,
-                site: "INDEED,ZIPRECRUITER,JOBS2CAREERS"
+                site: this.state.sites
 		      },
 		    })
       .then(res => {
@@ -123,8 +129,8 @@ var FetchData = React.createClass({
                     />
 				<div className = "row">
                     <SideBar 
-                    checked={this.state.checked} // for checked sites
-                    onChangeSite={this.handleSiteChange} //for hande site change
+                    isChecked = {this.state.isChecked}
+                    onChangeCheckbox ={this.handleCheckboxChange}
                     sort={this.state.sort} 
                     onSortChange={this.setSort}
                     posted={this.state.posted} 

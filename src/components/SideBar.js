@@ -19,33 +19,18 @@ var SideBar = React.createClass ({
 		this.props.onDistanceChange(distance);
 	},
 
-	handleChangeSite: function(e){
-		var checkedStatus = [];
-		var checkedIndeed;
-		var checkedZipRecruiter;
-		var checkedJob2Careers;
-
-		if(this.state.checked[0]){
-			checkedIndeed = false;
-		}else{
-			checkedIndeed = true;
+	handleChangeCheckbox: function(e){
+		var newCheckboxStatus = [];
+		if(e.target.value == 'indeed'){
+			newCheckboxStatus = [ e.target.checked, this.props.isChecked[1], this.props.isChecked[2] ];
 		}
-
-		if(this.state.checked[1]){
-			checkedZipRecruiter = false;
-		}else{
-			checkedZipRecruiter = true;
+		if(e.target.value == 'zipRecruiter'){
+			newCheckboxStatus = [ this.props.isChecked[0], e.target.checked, this.props.isChecked[2] ];
 		}
-
-		if(this.state.checked[2]){
-			checkedJob2Careers = false;
-		}else{
-			checkedJob2Careers = true;
+		if(e.target.value == 'jobs2Careers'){
+			newCheckboxStatus = [ this.props.isChecked[0], this.props.isChecked[1], e.target.checked ];
 		}
-
-		checkedStatus = [checkedIndeed, checkedZipRecruiter, checkedJob2Careers];
-
-		this.props.onChangeSite(checkedStatus);
+		this.props.onChangeCheckbox(newCheckboxStatus);
 	},
 	render() {
 
@@ -62,23 +47,26 @@ var SideBar = React.createClass ({
 					<div className="checkbox">
 					    <label>
 					        <input type="checkbox" 
-					        		data-key='0'
-					        		checked={this.props.checked[0]} 
-					        		onChange={this.handleChangeSite}/> 
+					        		value="indeed"
+					        		onChange={this.handleChangeCheckbox}
+					        		checked={this.props.isChecked[0]}
+					        		/> 
 					        	Indeed
 					    </label>
 					    <label>
-					        <input type="checkbox" 
-					        		data-key='1'
-					        		checked={this.props.checked[1]} 
-					        		onChange={this.handleChangeSite}/> 
+					        <input type="checkbox"
+					      			value="zipRecruiter"
+					      			onChange={this.handleChangeCheckbox}
+					        		checked={this.props.isChecked[1]}
+					        		/> 
 					        	ZipRecruiter
 					    </label>
 					    <label>
 					        <input type="checkbox"
-					        		data-key='2'
-					        		checked={this.props.checked[2]} 
-					        		onChange={this.handleChangeSite}/>  
+					        		value="jobs2Careers"
+					      			onChange={this.handleChangeCheckbox}
+					        		checked={this.props.isChecked[2]}
+					        		/>  
 					        	Jobs2Careers
 					    </label>
 					</div>
