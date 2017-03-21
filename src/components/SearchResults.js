@@ -34,9 +34,9 @@ var SearchResults = React.createClass ({
 
 					jobArray.push(
 
-		        	<li className="job-content">
+		        	<li key={i} className="job-content">
 
-							<div key={i} className="col-sm 9 job-details">
+							<div className="col-sm 9 job-details">
 
 									<div className="jobTitle">
 										<a href= {job.jobLink} target='_blank'>
@@ -87,7 +87,9 @@ var SearchResults = React.createClass ({
 			    <div className="row">
 				    <div className="col-sm-12">
 				        <ul className="job-wrapper">
-					              		{jobArray}
+
+					           {jobArray}
+					           
 			            </ul>
 			        </div>
 			    </div> 
