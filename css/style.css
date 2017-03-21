@@ -1,77 +1,136 @@
-  label {
-    clear: left;
-    display: block;
-    float: left;
-    text-align: right;
-  }
 
-  .well{
-    overflow: auto;
-  }
 
-  .center {
-  text-align: center;
-  }
+    label {
+      clear: left;
+      display: block;
+      float: left;
+      text-align: right;
+    }
 
- .pagination {
-    display: inline-block;
- }
+    .well{
+      overflow: auto;
+    }
 
- .pagination a {
-     color: black;
-     float: left;
-     padding: 8px 16px;
-     text-decoration: none;
-     transition: background-color .3s;
-     border: 1px solid #ddd;
-     margin: 0 4px;
- }
+    .center {
+    text-align: center;
+    }
 
- .pagination a.active {
-     background-color: #4CAF50;
-     color: white;
-     border: 1px solid #4CAF50;
- }
+   .pagination {
+      display: inline-block;
+   }
 
- .pagination a:hover:not(.active) {background-color: #ddd;}
+   .pagination a {
+       color: black;
+       float: left;
+       padding: 8px 16px;
+       text-decoration: none;
+       transition: background-color .3s;
+       border: 1px solid #ddd;
+       margin: 0 4px;
+   }
 
- .row{
-  text-align: left;
- }
+   .pagination a.active {
+       background-color: #4CAF50;
+       color: white;
+       border: 1px solid #4CAF50;
+   }
 
- 
- .border-line{
-margin-bottom: 3em;
- }
+   .pagination a:hover:not(.active) {background-color: #ddd;}
 
- #logo-header{
-     margin:10px 0px;
-     margin-left: 20px;
+   .row{
+    text-align: left;
+   }
+
+   .navbar-inverse{
+      background-color: #2F4F4F;
+      height: 80px;
+      color: white;
+   }
+   .gap-class {
+margin-bottom:5px;
+border-bottom-color: black;
 }
-.site-info{
-  margin-top: 35px;
-  font-weight: bold;
-  margin-left: 180px;
-  font-size: 19px;
+.job-info{
+    border-style: solid;
+    border-width: 100%;
+}
+*/
 
- }
+.navbar{
+  border-radius:0;
+  -webkit-border-radius:0; 
+  -moz-border-radius: 0; 
+}
 
- .location-field{
-  margin-top: 20px;
- }
 
- .title-field{
-  margin-top: 20px;
- }
+.navbar-brand img{
+    width:70px;
+    height: auto;
+}
 
- .button-field{
-  margin-top: 20px;
- }
+.job-form{
+  border: 1px solid #ccc;
+    margin: 15px;
+    padding: 15px 0 0;
+}
 
- .jobHeader{
-  font-size: 20px;
-  color: black;
- }
+.checkbox label{
+  display: block;
+}
+
+.job-wrapper{
+  border:1px solid #cccccc;
+}
+
+.job-content{
+  border-bottom: 1px solid #ccc;
+  padding:10px;
+  display: table;
+  width:100%;
+
+}
+
+li.job-content:last-child{
+  border-bottom: 0;
+}
+
+ul{
+  padding:0;
+}
+
+.job-content p{
+  margin:0;
+  line-height: 22px;
+  
+}
+
+.job-details{
+  display:table-cell;
+  padding-left: 10px;
+  padding-bottom: 10px;
+
+}
+
+.job-image{
+  display:table-cell;
+  vertical-align: bottom;
+  float: none;
+
+}
+
+.job-title{
+  margin:10px 0;
+  line-height: 30px;
+}
+
+select{
+  width:100%;
+  padding:5px;
+}
+
+.site-image{
+  height: 20px;
+}
 
  .suggest-info{
   font-size: 18px;
@@ -79,24 +138,13 @@ margin-bottom: 3em;
   color: black;
  }
 
- .job-section{
-    border-bottom: 20px solid white;  
-    padding-bottom: 4px;
+ .jobHeader{
+  font-size: 20px;
+  color: black;
  }
-
- select{
-  width:100%;
-  padding:5px;
+@media screen and (max-width: 767px){
+  .navbar-brand img{
+    width:70px;
+    height: auto;
+  }
 }
-
-.job-image{
-  display:table-cell;
-  vertical-align: middle;
-  float: none;
-
-}
-
-.site-image{
-  height: 20px;
-}
-

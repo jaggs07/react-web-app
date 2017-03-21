@@ -15,7 +15,7 @@ var Image = React.createClass({
             img = "../../img/jobs2careers.png";
         }
         return(
-            <img src={img} className="site-image" height="100" width="100" alt="Avatar" />  
+            <img className="site-image" src={img} className="site-image" height="100" width="100" alt="Avatar" />  
         );
     }
 });
@@ -33,48 +33,50 @@ var SearchResults = React.createClass ({
 				isLoggedIn.map(function(job,i){
 
 					jobArray.push(
-				      <div key={i} className="row job-section">
 
-						<div className="col-sm-9 job-details">
+		        	<li className="job-content">
 
-							<div className="jobTitle">
-								<a href= {job.jobLink} target='_blank'>
-	   						 		 <h2 className="jobHeader"> {job.title} </h2>
-	   						 	</a>
-							</div>
+							<div key={i} className="col-sm 9 job-details">
 
-	 						<div className="jobOrganization"> 
-	 							<span>
-	 								<b>Company: </b>{job.companyName} 
-	 							</span>
-	 						</div>
+									<div className="jobTitle">
+										<a href= {job.jobLink} target='_blank'>
+			   						         <h2 className="jobHeader"> {job.title} </h2>
+			   						 	</a>
+									</div>
 
-	 						<div className="jobLocation">			          
-			               		<span> 
-			               			<b>Location: </b>{job.location} 
-			               		</span>
-		              		</div>
+			 						<div className="jobOrganization"> 
+			 							<span>
+			 								<b>Company: </b>{job.companyName} 
+			 							</span>
+			 						</div>
 
-		               		<div className="posteDate">
-		               			<span>
-		               				 <b>Posted : </b>{job.date} 
-		               			 </span>
-		               		 </div> 
+			 						<div className="jobLocation">			          
+					               		<span> 
+					               			<b>Location: </b>{job.location} 
+					               		</span>
+				              		</div>
 
-					   		<div className="partnerSite">
-					   			<span>
-					   				 <b>Partner Site: </b>{job.partnerSite} 
-					   			</span>
-					   		</div> 
- 							
-						</div>
+				               		<div className="posteDate">
+				               			<span>
+				               				 <b>Posted : </b>{job.date} 
+				               			 </span>
+				               		 </div> 
 
-						<div className="job-image">
-								<span className="site-text">Apply on</span>
-           					     <Image siteType={job.partnerSite} /> 
-           				</div> 						          				   
+							   		<div className="partnerSite">
+							   			<span>
+							   				 <b>Partner Site: </b>{job.partnerSite} 
+							   			</span>
+							   		</div> 
+	 							
+						    </div>
+
+							<div className="col-sm-3 job-image">
+									<span className="site-text">Apply on</span>
+	           					     <Image siteType={job.partnerSite} /> 
+	           				</div> 	
+           			</li>
+
            				    
-					</div>
  				);			               
 		})
 		}
@@ -84,9 +86,9 @@ var SearchResults = React.createClass ({
 			<div className="col-sm-9">
 			    <div className="row">
 				    <div className="col-sm-12">
-				        <div className="well">
+				        <ul className="job-wrapper">
 					              		{jobArray}
-			            </div>
+			            </ul>
 			        </div>
 			    </div> 
 		    </div>
