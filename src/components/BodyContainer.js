@@ -17,8 +17,7 @@ var FetchData = React.createClass({
             distance: '',
             posts:undefined,
             isChecked: [true, true, true],
-            sites:''
-
+            sites:'INDEED,ZIPRECRUITER,JOBS2CAREERS'
         };
     },
 
@@ -71,7 +70,8 @@ var FetchData = React.createClass({
             siteParamArray.push("JOBS2CAREERS");
         }
 
-        var sitesParam="";
+        var sitesParam = "";
+
         siteParamArray.map(function(name, index){
             if(index == ( siteParamArray.length - 1) ){
 
@@ -89,7 +89,6 @@ var FetchData = React.createClass({
     },
 
     handleClick: function(){
-        // var siteParam = this.setSiteParam();
 
     	axios.get(`http://54.234.23.64:8080/search/jobs`,{
 		      params: {
